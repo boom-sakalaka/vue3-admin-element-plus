@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-13 18:51:39
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-14 15:43:17
+ * @LastEditTime: 2021-11-14 17:06:16
  * @FilePath: \vue3-admin\src\main.js
  * @Description:
  */
@@ -20,3 +20,5 @@ const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
 app.use(store).use(router).mount('#app')
+
+// console.warn(process.env.VUE_APP_BASE_API)

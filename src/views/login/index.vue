@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <el-form class="login-from" :model="loginForm" :rules="loginRules">
+    <el-form class="login-from" :model="loginForm" :rules="loginRules" ref="loginFormRef">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
@@ -33,13 +33,20 @@
           </span>
         </span>
       </el-form-item>
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px">登录按钮</el-button>
+      <el-button
+        type="primary"
+        style="width: 100%; margin-bottom: 30px"
+        @click="handlerLogin"
+        :loading="loading"
+        >登录按钮</el-button
+      >
     </el-form>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useStore } from 'vuex'
 import { validatePassword } from './rules'
 // 数据源
 const loginForm = ref({
@@ -68,6 +75,29 @@ const loginRules = ref({
 const passwordType = ref('password')
 const onChangePwdType = () => {
   passwordType.value = passwordType.value === 'password' ? 'text' : 'password'
+}
+
+// 处理登录
+const loading = ref(false)
+const store = useStore()
+const loginFormRef = ref(null)
+const handlerLogin = () => {
+  // 1.进行表单校验
+  loginFormRef.value.validate((valid) => {
+    if (!valid) return
+    // 2.触发登录动作
+    loading.value = true
+    store
+      .dispatch('user/login', loginForm.value)
+      .then(() => {
+        loading.value = false
+        // 3.进行登录后的处理
+      })
+      .catch((err) => {
+        console.log(err)
+        loading.value = false
+      })
+  })
 }
 </script>
 
