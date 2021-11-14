@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-13 18:51:40
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-14 11:13:18
+ * @LastEditTime: 2021-11-14 20:04:21
  * @FilePath: \vue3-admin\src\router\index.js
  * @Description:
  */
@@ -13,6 +13,10 @@ const publicRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login/index')
+  },
+  {
+    path: '/',
+    component: () => import('@/layout')
   }
 ]
 
