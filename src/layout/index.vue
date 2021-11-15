@@ -2,15 +2,52 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:03:30
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-14 20:03:30
+ * @LastEditTime: 2021-11-15 22:31:07
  * @FilePath: \vue3-admin\src\layout\index.vue
  * @Description: 登录鉴权的页面
 -->
 <template>
-  <div>登录鉴权</div>
+  <div class="app-wrapper">
+    <!-- 左侧mune -->
+    <sidebar
+      id="guide-sidebar"
+      class="sidebar-container"
+      :style="{ backgroundColor: variables.menuBg }"
+    />
+    <div class="main-container">
+      <div class="fixed-header">
+        <!-- 顶部navbar -->
+        <navbar />
+      </div>
+      <!-- 内容区 -->
+      <app-main />
+    </div>
+  </div>
 </template>
 
 <script setup>
 import {} from 'vue'
+import Navbar from './components/Navbar.vue'
+import Sidebar from './components/Sidebar'
+import AppMain from './components/AppMain.vue'
+import variables from '@/styles/variables.scss'
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../styles/mixin.scss';
+@import '../styles/variables.scss';
+
+.app-wrapper {
+  @include clearfix;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  width: calc(100% - #{$sideBarWidth});
+}
+</style>
