@@ -2,20 +2,35 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:02:51
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-14 20:00:43
+ * @LastEditTime: 2021-11-17 22:12:14
  * @FilePath: \vue3-admin\src\utils\request.js
  * @Description: 封装axios
  */
 
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+import store from '@/store'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 50000
 })
 
-// 相应拦截器
+// 请求拦截器
+service.interceptors.request.use(
+  (config) => {
+    // 在这里统一注入token
+    if (store.getters.token) {
+      config.headers.Authorization = `Bearer ${store.getters.token}`
+    }
+    return config
+  },
+  (err) => {
+    return Promise.reject(err)
+  }
+)
+
+// 响应拦截器
 service.interceptors.response.use(
   (response) => {
     const { success, message, data } = response.data
