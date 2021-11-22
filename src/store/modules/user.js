@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:11:01
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-17 22:17:29
+ * @LastEditTime: 2021-11-22 21:43:25
  * @FilePath: \vue3-admin\src\store\modules\user.js
  * @Description: user 登录 模块数据
  */
@@ -48,6 +48,7 @@ export default {
     },
     async getUserInfo(context) {
       const res = await getUserInfo()
+
       context.commit('setUserInfo', res)
       return res
     }
