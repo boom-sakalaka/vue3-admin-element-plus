@@ -2,14 +2,14 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:11:01
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-22 21:43:25
+ * @LastEditTime: 2021-12-07 16:45:46
  * @FilePath: \vue3-admin\src\store\modules\user.js
  * @Description: user 登录 模块数据
  */
 
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
 
@@ -51,6 +51,14 @@ export default {
 
       context.commit('setUserInfo', res)
       return res
+    },
+    // 退出登录
+    logout() {
+      this.commit('user/setToken', '')
+      this.commit('user/setUserInfo', {})
+      removeAllItem()
+      // todo 清理权限相关的数据
+      router.push('/login')
     }
   }
 }

@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-22 21:53:50
+ * @LastEditTime: 2021-12-07 16:45:21
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -23,7 +23,7 @@
             <a href="#" target="_blank">
               <el-dropdown-item>课程主页</el-dropdown-item>
             </a>
-            <el-dropdown-item divided> 退出登录</el-dropdown-item>
+            <el-dropdown-item divided @click="logout"> 退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -33,6 +33,12 @@
 
 <script setup>
 import {} from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+const logout = () => {
+  store.dispatch('user/logout')
+}
 </script>
 <style lang="scss" scoped>
 .navbar {
