@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:11:01
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-07 16:45:46
+ * @LastEditTime: 2021-12-07 17:22:38
  * @FilePath: \vue3-admin\src\store\modules\user.js
  * @Description: user 登录 模块数据
  */
@@ -12,6 +12,7 @@ import md5 from 'md5'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
+import { setTimeStamp } from '@/utils/auth'
 
 export default {
   namespaced: true,
@@ -39,6 +40,10 @@ export default {
           .then((data) => {
             context.commit('setToken', data.token)
             router.push('/')
+
+            // 保存登录时间
+            setTimeStamp()
+
             resolve()
           })
           .catch((err) => {

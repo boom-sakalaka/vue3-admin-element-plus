@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:02:51
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-17 22:12:14
+ * @LastEditTime: 2021-12-07 17:25:18
  * @FilePath: \vue3-admin\src\utils\request.js
  * @Description: 封装axios
  */
@@ -10,6 +10,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import store from '@/store'
+import { isCheckTimeout } from '@/utils/auth'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -21,6 +22,12 @@ service.interceptors.request.use(
   (config) => {
     // 在这里统一注入token
     if (store.getters.token) {
+      // 主动验证 token时间是否过期
+      if (isCheckTimeout()) {
+        // 退出操作
+        store.dispatch('user/logout')
+        return Promise.reject(new Error('token 失效'))
+      }
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
     return config
