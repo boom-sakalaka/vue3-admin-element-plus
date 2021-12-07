@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:02:51
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-07 17:25:18
+ * @LastEditTime: 2021-12-07 19:30:23
  * @FilePath: \vue3-admin\src\utils\request.js
  * @Description: 封装axios
  */
@@ -52,6 +52,10 @@ service.interceptors.response.use(
     }
   },
   (err) => {
+    // token 过期
+    if (err?.response?.data?.code === 401) {
+      store.dispatch('user/logout')
+    }
     ElMessage.error(err.message)
     return Promise.reject(err)
   }
