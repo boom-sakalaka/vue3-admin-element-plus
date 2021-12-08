@@ -2,12 +2,14 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:59
  * @LastEditors: GZH
- * @LastEditTime: 2021-11-15 22:44:38
+ * @LastEditTime: 2021-12-08 21:55:12
  * @FilePath: \vue3-admin\src\layout\components\AppMain.vue
  * @Description:
 -->
 <template>
-  <div class="app-main">main</div>
+  <div class="app-main">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>

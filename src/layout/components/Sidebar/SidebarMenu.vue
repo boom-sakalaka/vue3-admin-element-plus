@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-07 20:12:37
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-07 20:20:07
+ * @LastEditTime: 2021-12-08 22:53:05
  * @FilePath: \vue3-admin\src\layout\components\Sidebar\SidebarMenu.vue
  * @Description:
 -->
@@ -29,11 +29,19 @@
   </el-menu>
 </template>
 
-<script>
-export default {
-  name: 'SidebarMenu'
-}
+<script setup>
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { filterRoutes, generateMenus } from '@/utils/route'
+
+const router = useRouter()
+
+const routes = computed(() => {
+  const filterRoute = filterRoutes(router.getRoutes())
+  console.warn(filterRoute)
+  return generateMenus(filterRoute)
+})
+console.log(routes.value)
 </script>
 
-<script setup></script>
 <style lang="scss" scoped></style>
