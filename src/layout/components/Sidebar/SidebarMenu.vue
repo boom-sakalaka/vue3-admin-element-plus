@@ -2,46 +2,45 @@
  * @Author: GZH
  * @Date: 2021-12-07 20:12:37
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-08 22:53:05
+ * @LastEditTime: 2021-12-09 22:05:20
  * @FilePath: \vue3-admin\src\layout\components\Sidebar\SidebarMenu.vue
  * @Description:
 -->
 <template>
   <el-menu
-    default-active="2"
+    :default-active="activeMenu"
     :unique-opened="true"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
+    :background-color="$store.getters.cssVar.menuBg"
+    :text-color="$store.getters.cssVar.menuText"
+    :active-text-color="$store.getters.cssVar.menuActiveText"
+    router
   >
-    <el-submenu index="1">
-      <template #title>
-        <i class="el-icon-location"> </i>
-        <span>导航一</span>
-      </template>
-      <el-menu-item index="1-1">选项一</el-menu-item>
-      <el-menu-item index="1-2">选项二</el-menu-item>
-    </el-submenu>
-    <el-menu-item index="2">
-      <i class="el-icon-location"></i>
-      <template #title>导航4</template>
-    </el-menu-item>
+    <sidebar-item v-for="item in routes" :key="item.path" :route="item" />
   </el-menu>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import SidebarItem from './SidebarItem'
 import { filterRoutes, generateMenus } from '@/utils/route'
 
 const router = useRouter()
 
 const routes = computed(() => {
   const filterRoute = filterRoutes(router.getRoutes())
-  console.warn(filterRoute)
   return generateMenus(filterRoute)
 })
-console.log(routes.value)
+
+// 默认激活项
+const route = useRoute()
+const activeMenu = computed(() => {
+  const { meta, path } = route
+  if (meta.activeMenu) {
+    return meta.activeMenu
+  }
+  return path
+})
 </script>
 
 <style lang="scss" scoped></style>
