@@ -2,12 +2,13 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-07 16:45:21
+ * @LastEditTime: 2021-12-09 23:29:54
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
 <template>
   <div class="navbar">
+    <hamburger class="hambruger-container" />
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -34,6 +35,7 @@
 <script setup>
 import {} from 'vue'
 import { useStore } from 'vuex'
+import Hamburger from '@/components/hamburger'
 
 const store = useStore()
 const logout = () => {
@@ -47,6 +49,18 @@ const logout = () => {
   position: relative;
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  .hambruger-container {
+    line-height: 46px;
+    height: 100%;
+    float: left;
+    cursor: pointer;
+    // hover 动画
+    transition: background 0.5s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
   .right-menu {
     display: flex;
     align-items: center;
