@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:03:30
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-09 23:40:24
+ * @LastEditTime: 2021-12-13 20:33:18
  * @FilePath: \vue3-admin\src\layout\index.vue
  * @Description: 登录鉴权的页面
 -->
@@ -49,7 +49,7 @@ import variables from '@/styles/variables.scss'
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
-  transition: width 0.28s;
+  transition: width #{$sideBarDuration};
 }
 .hideSidebar {
   .fixed-header {
