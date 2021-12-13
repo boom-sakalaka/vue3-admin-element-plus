@@ -2,13 +2,14 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-09 23:29:54
+ * @LastEditTime: 2021-12-13 20:52:23
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
 <template>
   <div class="navbar">
     <hamburger class="hambruger-container" />
+    <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -36,6 +37,7 @@
 import {} from 'vue'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/hamburger'
+import Breadcrumb from '@/layout/components/Breadcrumb'
 
 const store = useStore()
 const logout = () => {
@@ -60,6 +62,9 @@ const logout = () => {
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
+  }
+  .breadcrumb-container {
+    float: left;
   }
   .right-menu {
     display: flex;

@@ -1,3 +1,11 @@
+<!--
+ * @Author: GZH
+ * @Date: 2021-11-14 15:58:11
+ * @LastEditors: GZH
+ * @LastEditTime: 2021-12-13 21:23:54
+ * @FilePath: \vue3-admin\src\components\SvgIcon\index.vue
+ * @Description:
+-->
 <!--  -->
 <template>
   <!-- 展示外部图标 -->

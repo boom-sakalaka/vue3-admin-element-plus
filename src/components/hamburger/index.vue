@@ -2,22 +2,22 @@
  * @Author: GZH
  * @Date: 2021-12-09 23:15:48
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-09 23:28:59
+ * @LastEditTime: 2021-12-13 21:30:31
  * @FilePath: \vue3-admin\src\components\hamburger\index.vue
  * @Description:
 -->
 
 <template>
-  <div class="hamburger-container" @click="toggleClick">
-    <svg-icon class="hamburger" :icon="icon" />
+  <div class="hamburger-contain" @click="toggleClick">
+    <svg-icon :icon="icon" />
   </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   name: 'hamburger'
 }
-</script>
+</script> -->
 
 <script setup>
 /* eslint-disable import/first */
@@ -34,13 +34,7 @@ const toggleClick = () => {
 </script>
 
 <style lang="scss" scoped>
-.hamburger-container {
+.hamburger-contain {
   padding: 0 16px;
-  .humburger {
-    display: inline-block;
-    vertical-align: middle;
-    width: 20px;
-    height: 20px;
-  }
 }
 </style>
