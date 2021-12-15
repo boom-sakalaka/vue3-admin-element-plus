@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-15 20:20:18
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 21:25:29
+ * @LastEditTime: 2021-12-15 22:47:29
  * @FilePath: \vue3-admin\src\components\LangSelect\index.vue
  * @Description: 切换语言
 -->
@@ -47,7 +47,7 @@ const handleSetLanguage = (lang) => {
   // 修改vuex里面的language
   store.commit('app/setLanguage', lang)
   // 提示
-  ElMessage.success('更新成功')
+  ElMessage.success(i18n.t('msg.toast.switchLangSuccess'))
 }
 </script>
 <style lang="scss" scoped></style>

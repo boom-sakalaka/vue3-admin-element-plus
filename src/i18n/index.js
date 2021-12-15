@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-15 20:09:30
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 21:56:56
+ * @LastEditTime: 2021-12-15 22:15:24
  * @FilePath: \vue3-admin\src\i18n\index.js
  * @Description:
  */
@@ -24,7 +24,7 @@ const messages = {
   }
 }
 
-const locale = 'en'
+const locale = 'zh'
 
 const i18n = createI18n({
   // 使用 composition API

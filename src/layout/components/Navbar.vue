@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 21:15:56
+ * @LastEditTime: 2021-12-15 22:44:21
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -21,12 +21,14 @@
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item>主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
             </router-link>
             <a href="#" target="_blank">
-              <el-dropdown-item>课程主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout"> 退出登录</el-dropdown-item>
+            <el-dropdown-item divided @click="logout">
+              {{ $t('msg.navBar.logout') }}</el-dropdown-item
+            >
           </el-dropdown-menu>
         </template>
       </el-dropdown>
