@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-13 20:52:23
+ * @LastEditTime: 2021-12-15 20:39:50
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -11,6 +11,7 @@
     <hamburger class="hambruger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <lange-select class="right-menu-item hover-effect"></lange-select>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -38,6 +39,7 @@ import {} from 'vue'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/hamburger'
 import Breadcrumb from '@/layout/components/Breadcrumb'
+import LangeSelect from '@/components/LangSelect'
 
 const store = useStore()
 const logout = () => {
@@ -72,6 +74,17 @@ const logout = () => {
     float: right;
     padding-right: 16px;
 
+    :deep(.right-menu-item) {
+      display: inline-block;
+      padding: 0 18px 0 0;
+      font-size: 24px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+
+      &.hover-effect {
+        cursor: pointer;
+      }
+    }
     :deep(.avatar-container) {
       cursor: pointer;
       .avatar-wrapper {
