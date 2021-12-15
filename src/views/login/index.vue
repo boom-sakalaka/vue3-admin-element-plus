@@ -49,22 +49,23 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { validatePassword } from './rules'
+import { validatePassword, validateUsername } from './rules'
 import LangeSelect from '@/components/LangSelect'
-import { useI18n } from 'vue-i18n'
+// import { useI18n } from 'vue-i18n'
 // 数据源
 const loginForm = ref({
   username: 'super-admin',
   password: '123456'
 })
 // 验证规则
-const i18n = useI18n()
+// const i18n = useI18n()
 const loginRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: i18n.t('msg.login.usernameRule')
+      // message: i18n.t('msg.login.usernameRule')
+      validator: validateUsername()
     }
   ],
   password: [
