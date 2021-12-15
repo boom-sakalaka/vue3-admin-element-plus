@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 20:39:50
+ * @LastEditTime: 2021-12-15 21:15:56
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -11,7 +11,7 @@
     <hamburger class="hambruger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
-      <lange-select class="right-menu-item hover-effect"></lange-select>
+      <lange-select class="right-menu-item hover-effect" effect="dark"></lange-select>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">

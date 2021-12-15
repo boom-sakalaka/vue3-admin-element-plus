@@ -2,17 +2,15 @@
  * @Author: GZH
  * @Date: 2021-12-15 20:20:18
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 20:40:50
+ * @LastEditTime: 2021-12-15 21:25:29
  * @FilePath: \vue3-admin\src\components\LangSelect\index.vue
  * @Description: 切换语言
 -->
 <template>
   <el-dropdown class="international" trigger="click" @command="handleSetLanguage">
-    <div class="">
-      <el-tooltip content="国际化" :effect="effect">
-        <svg-icon icon="language" />
-      </el-tooltip>
-    </div>
+    <el-tooltip content="国际化" placement="bottom">
+      <span><svg-icon icon="language" /></span>
+    </el-tooltip>
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item :disabled="language === 'zh'" command="zh"> 中文 </el-dropdown-item>
