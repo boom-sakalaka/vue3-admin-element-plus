@@ -1,5 +1,15 @@
+<!--
+ * @Author: GZH
+ * @Date: 2021-12-07 20:50:59
+ * @LastEditors: GZH
+ * @LastEditTime: 2021-12-15 20:14:21
+ * @FilePath: \vue3-admin\src\views\profile\index.vue
+ * @Description:
+-->
 <template>
-  <div class="">个人中心</div>
+  <div class="">
+    {{ $t('msg.test') }}
+  </div>
 </template>
 
 <script setup>
