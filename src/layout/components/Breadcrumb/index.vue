@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-13 20:47:56
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-14 21:29:22
+ * @LastEditTime: 2021-12-16 10:08:40
  * @FilePath: \vue3-admin\src\layout\components\Breadcrumb\index.vue
  * @Description:
 -->
@@ -12,11 +12,11 @@
       <el-breadcrumb-item v-for="(item, index) in breadcrumData" :key="item.path">
         <!-- 不可点击项目 -->
         <span v-if="index === breadcrumData.length - 1" class="no-redirect">
-          {{ item.meta.title }}
+          {{ generateTitle(item.meta.title) }}
         </span>
         <!-- 可点击项 -->
         <span v-else class="redirect" @click="onLinkClick(item)">
-          {{ item.meta.title }}
+          {{ generateTitle(item.meta.title) }}
         </span>
       </el-breadcrumb-item>
     </transition-group>
@@ -26,7 +26,8 @@
 <script setup>
 import { useStore } from 'vuex'
 import { ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import { generateTitle } from '@/utils/i18n'
 
 // 生成数组数据
 const breadcrumData = ref([])
@@ -47,7 +48,11 @@ watch(
   }
 )
 
-const onLinkClick = () => {}
+const router = useRouter()
+const onLinkClick = (item) => {
+  const { path } = item
+  router.push(path)
+}
 
 // 将来需要主题替换，所以hover的颜色我们设置为主色
 const store = useStore()

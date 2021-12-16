@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-13 18:51:40
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-08 21:54:29
+ * @LastEditTime: 2021-12-16 10:08:07
  * @FilePath: \vue3-admin\src\router\index.js
  * @Description:
  */
@@ -26,7 +26,7 @@ const privateRouters = [
         name: 'userManage',
         component: () => import('@/views/user-manage/index'),
         meta: {
-          title: 'userMamage',
+          title: 'userManage',
           icon: 'personnel-manage'
         }
       },
@@ -69,7 +69,7 @@ const privateRouters = [
   {
     path: '/article',
     component: layout,
-    redirect: '/article',
+    redirect: '/article/ranking',
     meta: {
       title: 'article',
       icon: 'article'
