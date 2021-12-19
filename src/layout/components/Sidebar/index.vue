@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:33:47
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 19:11:16
+ * @LastEditTime: 2021-12-19 21:22:50
  * @FilePath: \vue3-admin\src\layout\components\Sidebar\index.vue
  * @Description:
 -->
@@ -42,7 +42,7 @@ const logoHeight = 44
     white-space: nowrap;
   }
 }
-:deep(.el-avatar) {
+.el-avatar {
   --el-avatar-background-color: none;
   margin-right: 12px;
 }

@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:03:30
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-13 20:33:18
+ * @LastEditTime: 2021-12-19 21:16:27
  * @FilePath: \vue3-admin\src\layout\index.vue
  * @Description: 登录鉴权的页面
 -->
@@ -12,7 +12,7 @@
     <sidebar
       id="guide-sidebar"
       class="sidebar-container"
-      :style="{ backgroundColor: variables.menuBg }"
+      :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
     />
     <div class="main-container">
       <div class="fixed-header">
@@ -30,7 +30,7 @@ import {} from 'vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain.vue'
-import variables from '@/styles/variables.scss'
+// import variables from '@/styles/variables.scss'
 </script>
 <style lang="scss" scoped>
 @import '../styles/mixin.scss';
