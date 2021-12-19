@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 19:10:38
+ * @LastEditTime: 2021-12-19 21:43:29
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -11,8 +11,10 @@
     <hamburger class="hambruger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
-      <lange-select class="right-menu-item hover-effect" effect="dark"></lange-select>
-      <theme-select class="right-menu-item hover-effect" effect="dark"></theme-select>
+      <screen-full class="right-menu-item hover-effect"></screen-full>
+      <lange-select class="right-menu-item hover-effect"></lange-select>
+      <theme-select class="right-menu-item hover-effect"></theme-select>
+
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -44,6 +46,7 @@ import Hamburger from '@/components/hamburger'
 import Breadcrumb from '@/layout/components/Breadcrumb'
 import LangeSelect from '@/components/LangSelect'
 import ThemeSelect from '@/components/ThemeSelect'
+import ScreenFull from '@/components/Scrennfull'
 
 const store = useStore()
 const logout = () => {
