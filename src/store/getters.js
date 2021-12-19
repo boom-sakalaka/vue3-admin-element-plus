@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:10:50
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 20:27:21
+ * @LastEditTime: 2021-12-19 17:19:15
  * @FilePath: \vue3-admin\src\store\getters.js
  * @Description: 快捷访问
  */
@@ -17,6 +17,7 @@ const getters = {
   userInfo: (state) => state.user.userInfo,
   cssVar: (state) => variables,
   sidebarOpened: (state) => state.app.sidebarOpened,
-  language: (state) => state.app.language
+  language: (state) => state.app.language,
+  mainColor: (state) => state.theme.mainColor
 }
 export default getters

@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 22:44:21
+ * @LastEditTime: 2021-12-19 19:10:38
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -12,6 +12,7 @@
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <lange-select class="right-menu-item hover-effect" effect="dark"></lange-select>
+      <theme-select class="right-menu-item hover-effect" effect="dark"></theme-select>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -42,6 +43,7 @@ import { useStore } from 'vuex'
 import Hamburger from '@/components/hamburger'
 import Breadcrumb from '@/layout/components/Breadcrumb'
 import LangeSelect from '@/components/LangSelect'
+import ThemeSelect from '@/components/ThemeSelect'
 
 const store = useStore()
 const logout = () => {
@@ -92,7 +94,7 @@ const logout = () => {
       .avatar-wrapper {
         margin-top: 5px;
         position: relative;
-        .el-avatar {
+        :deep(.el-avatar) {
           --el-avatar-background-color: none;
           margin-right: 12px;
         }
