@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 21:43:29
+ * @LastEditTime: 2021-12-22 20:45:38
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
@@ -11,6 +11,7 @@
     <hamburger class="hambruger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <header-search class="right-menu-item hover-effect"></header-search>
       <screen-full class="right-menu-item hover-effect"></screen-full>
       <lange-select class="right-menu-item hover-effect"></lange-select>
       <theme-select class="right-menu-item hover-effect"></theme-select>
@@ -47,6 +48,7 @@ import Breadcrumb from '@/layout/components/Breadcrumb'
 import LangeSelect from '@/components/LangSelect'
 import ThemeSelect from '@/components/ThemeSelect'
 import ScreenFull from '@/components/Scrennfull'
+import HeaderSearch from '@/components/HeaderSearch'
 
 const store = useStore()
 const logout = () => {
