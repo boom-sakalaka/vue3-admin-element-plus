@@ -2,17 +2,18 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-22 20:45:38
+ * @LastEditTime: 2021-12-26 21:03:47
  * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
  * @Description:
 -->
 <template>
   <div class="navbar">
-    <hamburger class="hambruger-container" />
-    <breadcrumb class="breadcrumb-container" />
+    <hamburger class="hambruger-container" id="guide-hamburger" />
+    <breadcrumb class="breadcrumb-container" id="guide-breadcrumb" />
     <div class="right-menu">
-      <header-search class="right-menu-item hover-effect"></header-search>
-      <screen-full class="right-menu-item hover-effect"></screen-full>
+      <guide class="right-menu-item hover-effect"></guide>
+      <header-search class="right-menu-item hover-effect" id="guide-search"></header-search>
+      <screen-full class="right-menu-item hover-effect" id="guide-full"></screen-full>
       <lange-select class="right-menu-item hover-effect"></lange-select>
       <theme-select class="right-menu-item hover-effect"></theme-select>
 
@@ -49,6 +50,7 @@ import LangeSelect from '@/components/LangSelect'
 import ThemeSelect from '@/components/ThemeSelect'
 import ScreenFull from '@/components/Scrennfull'
 import HeaderSearch from '@/components/HeaderSearch'
+import Guide from '@/components/Guide'
 
 const store = useStore()
 const logout = () => {

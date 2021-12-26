@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-19 14:45:47
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 17:09:25
+ * @LastEditTime: 2021-12-26 21:04:00
  * @FilePath: \vue3-admin\src\components\ThemeSelect\index.vue
  * @Description:
 -->
@@ -11,7 +11,7 @@
   <el-dropdown v-bind="$attrs" trigger="click" class="theme" @command="handleSetTheme">
     <div>
       <el-tooltip :content="$t('msg.theme.themeChange')" placement="bottom">
-        <span> <svg-icon icon="change-theme"></svg-icon></span>
+        <span id="guide-theme"> <svg-icon icon="change-theme"></svg-icon></span>
       </el-tooltip>
     </div>
     <template #dropdown>

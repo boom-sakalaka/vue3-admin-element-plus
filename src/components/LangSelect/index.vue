@@ -2,14 +2,14 @@
  * @Author: GZH
  * @Date: 2021-12-15 20:20:18
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 22:47:29
+ * @LastEditTime: 2021-12-26 21:03:40
  * @FilePath: \vue3-admin\src\components\LangSelect\index.vue
  * @Description: 切换语言
 -->
 <template>
   <el-dropdown class="international" trigger="click" @command="handleSetLanguage">
     <el-tooltip content="国际化" placement="bottom">
-      <span><svg-icon icon="language" /></span>
+      <span id="guide-lang"><svg-icon icon="language" /></span>
     </el-tooltip>
     <template #dropdown>
       <el-dropdown-menu>

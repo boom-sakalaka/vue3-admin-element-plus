@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:03:30
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-26 15:25:20
+ * @LastEditTime: 2021-12-26 21:05:39
  * @FilePath: \vue3-admin\src\layout\index.vue
  * @Description: 登录鉴权的页面
 -->
@@ -19,7 +19,7 @@
         <!-- 顶部navbar -->
         <navbar />
         <!-- tags -->
-        <tag-view></tag-view>
+        <tag-view id="guide-tags"></tag-view>
       </div>
       <!-- 内容区 -->
       <app-main />
