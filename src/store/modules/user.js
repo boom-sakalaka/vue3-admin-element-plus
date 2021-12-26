@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:11:01
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-07 17:22:38
+ * @LastEditTime: 2021-12-26 16:00:10
  * @FilePath: \vue3-admin\src\store\modules\user.js
  * @Description: user 登录 模块数据
  */
@@ -61,6 +61,7 @@ export default {
     logout() {
       this.commit('user/setToken', '')
       this.commit('user/setUserInfo', {})
+      this.commit('app/setTagsViewList', [])
       removeAllItem()
       // todo 清理权限相关的数据
       router.push('/login')

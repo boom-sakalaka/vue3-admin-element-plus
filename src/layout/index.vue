@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:03:30
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 21:16:27
+ * @LastEditTime: 2021-12-26 15:25:20
  * @FilePath: \vue3-admin\src\layout\index.vue
  * @Description: 登录鉴权的页面
 -->
@@ -18,6 +18,8 @@
       <div class="fixed-header">
         <!-- 顶部navbar -->
         <navbar />
+        <!-- tags -->
+        <tag-view></tag-view>
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -30,6 +32,8 @@ import {} from 'vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain.vue'
+import TagView from '../components/tagsView'
+
 // import variables from '@/styles/variables.scss'
 </script>
 <style lang="scss" scoped>

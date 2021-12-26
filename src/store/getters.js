@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 20:10:50
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 21:20:05
+ * @LastEditTime: 2021-12-26 15:16:43
  * @FilePath: \vue3-admin\src\store\getters.js
  * @Description: 快捷访问
  */
@@ -24,6 +24,7 @@ const getters = {
   }),
   sidebarOpened: (state) => state.app.sidebarOpened,
   language: (state) => state.app.language,
-  mainColor: (state) => state.theme.mainColor
+  mainColor: (state) => state.theme.mainColor,
+  tagsViewList: (state) => state.app.tagsViewList
 }
 export default getters

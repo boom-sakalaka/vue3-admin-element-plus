@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:39:31
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 17:15:57
+ * @LastEditTime: 2021-12-26 14:58:29
  * @FilePath: \vue3-admin\src\constant\index.js
  * @Description: 常量
  */
@@ -20,3 +20,6 @@ export const LANG = 'language'
 export const MAIN_COLOR = 'mainColor'
 // 默认主题色
 export const DEFAULT_COLOR = '#409eff'
+
+// 保存常量'
+export const TAGS_VIEW = 'tagsViews'
