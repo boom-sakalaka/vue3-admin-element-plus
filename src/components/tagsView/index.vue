@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-12-26 15:17:05
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-26 20:15:49
- * @FilePath: \vue3-admin\src\components\tagsView\index.vue
+ * @LastEditTime: 2022-01-04 21:22:49
+ * @FilePath: \vue3-admin-element-plus\src\components\tagsView\index.vue
  * @Description:
 -->
 <template>
@@ -20,7 +20,11 @@
       }"
       @contextmenu.prevent="openMenu($event, index)"
       >{{ tag.title }}
-      <i v-show="!isActive(tag)" class="el-icon-close" @click.prevent.stop="onCloseClick"></i>
+      <i
+        v-show="!isActive(tag)"
+        class="el-icon-close"
+        @click.prevent.stop="onCloseClick(index)"
+      ></i>
     </router-link>
 
     <context-menu v-show="visible" :style="menuStyle" :index="selectIndex"></context-menu>
@@ -55,10 +59,10 @@ const openMenu = (e, index) => {
 
 // 关闭tag的事件
 const store = useStore()
-const onCloseClick = () => {
+const onCloseClick = (index) => {
   store.commit('app/removeTagsView', {
     type: 'index',
-    index: selectIndex.value
+    index
   })
 }
 

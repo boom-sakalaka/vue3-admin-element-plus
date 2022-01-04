@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-12-09 21:38:29
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-16 09:50:48
- * @FilePath: \vue3-admin\src\layout\components\Sidebar\MenuItem.vue
+ * @LastEditTime: 2022-01-02 17:30:46
+ * @FilePath: \vue3-admin-element-plus\src\layout\components\Sidebar\MenuItem.vue
  * @Description:
 -->
 <template>
@@ -14,7 +14,7 @@
 
 <script setup>
 import { defineProps } from 'vue'
-import SvgIcon from '@/components/SvgIcon/index.vue'
+
 import { generateTitle } from '@/utils/i18n'
 
 defineProps({
