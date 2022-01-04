@@ -2,27 +2,49 @@
  * @Author: GZH
  * @Date: 2021-12-07 20:50:59
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 19:06:16
- * @FilePath: \vue3-admin\src\views\profile\index.vue
+ * @LastEditTime: 2022-01-04 22:14:59
+ * @FilePath: \vue3-admin-element-plus\src\views\profile\index.vue
  * @Description:
 -->
 <template>
   <div>
-    <!-- {{ $t('msg.test') }} -->
-
-    <el-pagination layout="total, sizes, prev, pager, next, jumper" :total="1000"></el-pagination>
-    <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-    <el-button>中文</el-button>
+    <div class="my-container">
+      <el-row>
+        <el-col :span="6">
+          <project-card class="project-card"></project-card>
+        </el-col>
+        <el-col :span="18" class="">
+          <el-card>
+            <el-tabs v-model="activeName">
+              <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
+                <feature />
+              </el-tab-pane>
+              <el-tab-pane :label="$t('msg.profile.chapter')" name="chapter">
+                <chapter />
+              </el-tab-pane>
+              <el-tab-pane :label="$t('msg.profile.author')" name="author">
+                <author />
+              </el-tab-pane>
+            </el-tabs>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script setup>
-import {} from 'vue'
+import { ref } from 'vue'
+import ProjectCard from './components/ProjectCard.vue'
+import Feature from './components/Feature.vue'
+import Chapter from './components/Chapter.vue'
+import Author from './components/Author.vue'
+
+const activeName = ref('feature')
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.project-card {
+  margin-right: 20px;
+}
+</style>
