@@ -7,7 +7,7 @@
  * @Description: 作者
 -->
 <template>
-  <div>作者</div>
+  <div>作者简介....</div>
 </template>
 
 <script setup>

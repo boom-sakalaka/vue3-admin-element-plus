@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-07 20:50:59
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-05 20:25:10
+ * @LastEditTime: 2022-01-05 20:29:51
  * @FilePath: \vue3-admin-element-plus\src\views\profile\index.vue
  * @Description:
 -->
@@ -17,7 +17,7 @@
           <el-card>
             <el-tabs v-model="activeName">
               <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
-                <feature />
+                <feature :features="featureData" />
               </el-tab-pane>
               <el-tab-pane :label="$t('msg.profile.chapter')" name="chapter">
                 <chapter />
