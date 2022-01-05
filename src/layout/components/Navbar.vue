@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:34:25
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-26 21:03:47
- * @FilePath: \vue3-admin\src\layout\components\Navbar.vue
+ * @LastEditTime: 2022-01-05 20:19:26
+ * @FilePath: \vue3-admin-element-plus\src\layout\components\Navbar.vue
  * @Description:
 -->
 <template>
@@ -20,7 +20,11 @@
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"></el-avatar>
+          <el-avatar
+            shape="square"
+            :size="40"
+            :src="$store.getters.userInfo.avatar + '1'"
+          ></el-avatar>
           <i class="el-icon-s-tools"></i>
         </div>
         <template #dropdown>

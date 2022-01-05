@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-11-15 20:33:47
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-19 21:25:05
- * @FilePath: \vue3-admin\src\layout\components\Sidebar\index.vue
+ * @LastEditTime: 2022-01-05 20:19:36
+ * @FilePath: \vue3-admin-element-plus\src\layout\components\Sidebar\index.vue
  * @Description:
 -->
 <template>
@@ -12,7 +12,7 @@
       <el-avatar
         :size="logoHeight"
         shape="square"
-        :src="$store.getters.userInfo.avatar"
+        :src="$store.getters.userInfo.avatar + '1'"
       ></el-avatar>
       <h1 class="logo-title" v-if="$store.getters.sidebarOpened">imooc-admin</h1>
     </div>

@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-12-07 20:50:59
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-04 22:14:59
+ * @LastEditTime: 2022-01-05 19:54:26
  * @FilePath: \vue3-admin-element-plus\src\views\profile\index.vue
  * @Description:
 -->
@@ -11,7 +11,7 @@
     <div class="my-container">
       <el-row>
         <el-col :span="6">
-          <project-card class="project-card"></project-card>
+          <project-card class="project-card" :features="featureData"></project-card>
         </el-col>
         <el-col :span="18" class="">
           <el-card>
@@ -39,8 +39,15 @@ import ProjectCard from './components/ProjectCard.vue'
 import Feature from './components/Feature.vue'
 import Chapter from './components/Chapter.vue'
 import Author from './components/Author.vue'
+import { feature as featureApi } from '@/api/user'
 
 const activeName = ref('feature')
+
+const featureData = ref([])
+const getFeatureData = async () => {
+  featureData.value = await featureApi()
+}
+getFeatureData()
 </script>
 
 <style lang="scss" scoped>
