@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:02:51
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-07 19:30:23
- * @FilePath: \vue3-admin\src\utils\request.js
+ * @LastEditTime: 2022-01-05 20:23:47
+ * @FilePath: \vue3-admin-element-plus\src\utils\request.js
  * @Description: 封装axios
  */
 
@@ -30,6 +30,7 @@ service.interceptors.request.use(
       }
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
+    config.headers['Accept-Language'] = store.getters.language
     return config
   },
   (err) => {
