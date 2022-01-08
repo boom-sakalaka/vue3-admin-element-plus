@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-11-13 18:51:39
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-15 20:13:24
- * @FilePath: \vue3-admin\src\main.js
+ * @LastEditTime: 2022-01-08 18:12:51
+ * @FilePath: \vue3-admin-element-plus\src\main.js
  * @Description:
  */
 import { createApp } from 'vue'
@@ -20,9 +20,13 @@ import installIcons from '@/icons'
 import './permission'
 import i18n from './i18n'
 
+// 全局属性
+import installFilter from '@/filter'
+
 const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
+installFilter(app)
 app.use(store).use(router).use(i18n).mount('#app')
 
 // console.warn(process.env.VUE_APP_BASE_API)
