@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-13 18:51:39
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-08 18:12:51
+ * @LastEditTime: 2022-01-09 15:50:07
  * @FilePath: \vue3-admin-element-plus\src\main.js
  * @Description:
  */
@@ -23,10 +23,14 @@ import i18n from './i18n'
 // 全局属性
 import installFilter from '@/filter'
 
+// 指令
+import installDirective from '@/directives'
+
 const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
 installFilter(app)
+installDirective(app)
 app.use(store).use(router).use(i18n).mount('#app')
 
 // console.warn(process.env.VUE_APP_BASE_API)

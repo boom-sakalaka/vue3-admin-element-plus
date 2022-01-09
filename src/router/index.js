@@ -2,8 +2,8 @@
  * @Author: GZH
  * @Date: 2021-11-13 18:51:40
  * @LastEditors: GZH
- * @LastEditTime: 2021-12-16 10:08:07
- * @FilePath: \vue3-admin\src\router\index.js
+ * @LastEditTime: 2022-01-09 15:15:54
+ * @FilePath: \vue3-admin-element-plus\src\router\index.js
  * @Description:
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -52,6 +52,7 @@ const privateRouters = [
         path: '/user/info/:id',
         name: 'userInfo',
         component: () => import('@/views/user-info/index'),
+        props: true,
         meta: {
           title: 'userInfo'
         }

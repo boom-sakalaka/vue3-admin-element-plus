@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-02 16:36:56
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-09 14:05:46
+ * @LastEditTime: 2022-01-09 15:13:23
  * @FilePath: \vue3-admin-element-plus\src\views\user-manage\index.vue
  * @Description:
 -->
@@ -55,7 +55,9 @@
         <!-- 操作 -->
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="300">
           <template #default="{ row }">
-            <el-button type="primary" size="mini">{{ $t('msg.excel.show') }}</el-button>
+            <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{
+              $t('msg.excel.show')
+            }}</el-button>
             <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{
               $t('msg.excel.remove')
@@ -125,10 +127,15 @@ const onRemoveClick = (row) => {
       type: 'warning'
     }
   ).then(async () => {
-    await deleteUser(row.id)
+    await deleteUser(row._id)
     ElMessage.success(i18n.t('msg.excel.removeSuccess'))
     getListData()
   })
+}
+
+/* 查看用户详情 */
+const onShowClick = (id) => {
+  router.push(`/user/info/${id}`)
 }
 
 /* excle 导入跳转事件 */

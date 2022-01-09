@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-08 17:28:37
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-09 14:05:21
+ * @LastEditTime: 2022-01-09 15:07:48
  * @FilePath: \vue3-admin-element-plus\src\api\user-manage.js
  * @Description:
  */
@@ -20,6 +20,13 @@ export const getUserManageList = (data) => {
 export const getUserManageAllList = () => {
   return request({
     url: '/user-manage/all-list'
+  })
+}
+
+/* 获取用户详情 */
+export const userDetail = (id) => {
+  return request({
+    url: `/user-manage/detail/${id}`
   })
 }
 
