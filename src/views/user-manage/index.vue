@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-02 16:36:56
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-09 15:13:23
+ * @LastEditTime: 2022-01-09 20:54:52
  * @FilePath: \vue3-admin-element-plus\src\views\user-manage\index.vue
  * @Description:
 -->
@@ -58,7 +58,9 @@
             <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{
               $t('msg.excel.show')
             }}</el-button>
-            <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
+            <el-button type="info" size="mini" @click="onShowRoles(row)">{{
+              $t('msg.excel.showRole')
+            }}</el-button>
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{
               $t('msg.excel.remove')
             }}</el-button>
@@ -77,12 +79,14 @@
       ></el-pagination>
     </el-card>
     <export2-excel v-model="exportToExcelVisible" />
+    <roles-dialog v-model="roleDialogVisible" :userId="selectUserId" @updateRole="getListData" />
   </div>
 </template>
 
 <script setup>
-import { onActivated, ref } from 'vue'
+import { onActivated, ref, watch } from 'vue'
 import Export2Excel from './components/Export2Excel.vue'
+import RolesDialog from './components/roles'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
@@ -153,6 +157,18 @@ const exportToExcelVisible = ref(false)
 const onToExcelClick = () => {
   exportToExcelVisible.value = true
 }
+
+// 选择角色
+const roleDialogVisible = ref(false)
+const selectUserId = ref('')
+const onShowRoles = (row) => {
+  roleDialogVisible.value = true
+  selectUserId.value = row._id
+}
+
+watch(roleDialogVisible, (val) => {
+  if (!val) selectUserId.value = ''
+})
 </script>
 
 <style lang="scss" scoped>

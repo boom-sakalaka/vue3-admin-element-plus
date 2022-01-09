@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-08 17:28:37
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-09 15:07:48
+ * @LastEditTime: 2022-01-09 20:53:24
  * @FilePath: \vue3-admin-element-plus\src\api\user-manage.js
  * @Description:
  */
@@ -43,5 +43,23 @@ export const userManageImport = (data) => {
 export const deleteUser = (id) => {
   return request({
     url: `/user-manage/detele/${id}`
+  })
+}
+
+// 获取指定用户的角色
+export const userRoles = (id) => {
+  return request({
+    url: `/user-manage/role/${id}`
+  })
+}
+
+// 为用户分配角色
+export const updateRole = (id, roles) => {
+  return request({
+    url: `/user-manage/update-role/${id}`,
+    method: 'POST',
+    data: {
+      roles
+    }
   })
 }
