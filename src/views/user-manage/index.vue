@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-02 16:36:56
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-08 22:27:28
+ * @LastEditTime: 2022-01-09 14:05:46
  * @FilePath: \vue3-admin-element-plus\src\views\user-manage\index.vue
  * @Description:
 -->
@@ -13,7 +13,9 @@
         <el-button type="primary" @click="onImportExcelClick">{{
           $t('msg.excel.importExcel')
         }}</el-button>
-        <el-button type="success">{{ $t('msg.excel.exportExcel') }}</el-button>
+        <el-button type="success" @click="onToExcelClick">{{
+          $t('msg.excel.exportExcel')
+        }}</el-button>
       </div>
     </el-card>
     <!-- table -->
@@ -52,10 +54,12 @@
         </el-table-column>
         <!-- 操作 -->
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="300">
-          <template #default>
+          <template #default="{ row }">
             <el-button type="primary" size="mini">{{ $t('msg.excel.show') }}</el-button>
             <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
-            <el-button type="danger" size="mini">{{ $t('msg.excel.remove') }}</el-button>
+            <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{
+              $t('msg.excel.remove')
+            }}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -70,14 +74,18 @@
         layout="total, sizes, pager, prev, next, jumper"
       ></el-pagination>
     </el-card>
+    <export2-excel v-model="exportToExcelVisible" />
   </div>
 </template>
 
 <script setup>
 import { onActivated, ref } from 'vue'
-import { getUserManageList } from '@/api/user-manage'
+import Export2Excel from './components/Export2Excel.vue'
+import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
+import { ElMessageBox, ElMessage } from 'element-plus'
+import { useI18n } from 'vue-i18n'
 
 // 数据相关
 const tabData = ref([])
@@ -108,6 +116,21 @@ const handleCurrentChange = (currentPage) => {
   getListData()
 }
 
+/* 删除用户 */
+const i18n = useI18n()
+const onRemoveClick = (row) => {
+  ElMessageBox.confirm(
+    i18n.t('msg.excel.dialogTitle1') + row.username + i18n.t('msg.excel.dialogTitle2'),
+    {
+      type: 'warning'
+    }
+  ).then(async () => {
+    await deleteUser(row.id)
+    ElMessage.success(i18n.t('msg.excel.removeSuccess'))
+    getListData()
+  })
+}
+
 /* excle 导入跳转事件 */
 const router = useRouter()
 const onImportExcelClick = () => {
@@ -117,6 +140,12 @@ const onImportExcelClick = () => {
 onActivated(() => {
   getListData()
 })
+
+/* excel 导出相关 */
+const exportToExcelVisible = ref(false)
+const onToExcelClick = () => {
+  exportToExcelVisible.value = true
+}
 </script>
 
 <style lang="scss" scoped>
