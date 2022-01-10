@@ -22,3 +22,6 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+[vue3+ts版本](https://github.com/boom-sakalaka/vue3-admin-ts)
