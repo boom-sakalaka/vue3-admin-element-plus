@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-11-14 17:02:51
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-05 20:23:47
+ * @LastEditTime: 2022-01-23 16:30:32
  * @FilePath: \vue3-admin-element-plus\src\utils\request.js
  * @Description: 封装axios
  */
@@ -20,6 +20,7 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   (config) => {
+    config.headers.icode = '9E423423E0376991'
     // 在这里统一注入token
     if (store.getters.token) {
       // 主动验证 token时间是否过期

@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-02 16:36:56
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-09 19:48:01
+ * @LastEditTime: 2022-01-23 17:00:59
  * @FilePath: \vue3-admin-element-plus\src\views\role-list\index.vue
  * @Description:
 -->
@@ -13,13 +13,14 @@
         <el-table-column :label="$t('msg.role.index')" type="index" width="120"></el-table-column>
         <el-table-column :label="$t('msg.role.name')" prop="title"></el-table-column>
         <el-table-column :label="$t('msg.role.desc')" prop="describe"></el-table-column>
-        <el-table-column :label="$t('msg.role.action')" width="200">
-          <el-button type="primary" size="mini">
+        <el-table-column :label="$t('msg.role.action')" width="200" #default="{ row }">
+          <el-button type="primary" size="mini" @click="onDistributepermissionClick(row)">
             {{ $t('msg.role.assignPermissions') }}
           </el-button>
         </el-table-column>
       </el-table>
     </el-card>
+    <distributepermission v-model="visible" :roleId="selectRoleId" />
   </div>
 </template>
 
@@ -27,6 +28,7 @@
 import { ref } from 'vue'
 import { roleList } from '@/api/role'
 import { watchSwitchLang } from '@/utils/i18n'
+import Distributepermission from './components/Distributepermission.vue'
 
 const allRoles = ref([])
 const getRoleList = async () => {
@@ -34,6 +36,13 @@ const getRoleList = async () => {
 }
 getRoleList()
 watchSwitchLang(getRoleList)
+
+const visible = ref(false)
+const selectRoleId = ref('')
+const onDistributepermissionClick = (row) => {
+  visible.value = true
+  selectRoleId.value = row.id
+}
 </script>
 
 <style lang="scss" scoped></style>
