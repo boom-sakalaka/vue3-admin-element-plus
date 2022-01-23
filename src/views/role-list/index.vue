@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-02 16:36:56
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-23 17:00:59
+ * @LastEditTime: 2022-01-23 19:21:23
  * @FilePath: \vue3-admin-element-plus\src\views\role-list\index.vue
  * @Description:
 -->
@@ -14,7 +14,12 @@
         <el-table-column :label="$t('msg.role.name')" prop="title"></el-table-column>
         <el-table-column :label="$t('msg.role.desc')" prop="describe"></el-table-column>
         <el-table-column :label="$t('msg.role.action')" width="200" #default="{ row }">
-          <el-button type="primary" size="mini" @click="onDistributepermissionClick(row)">
+          <el-button
+            type="primary"
+            size="mini"
+            @click="onDistributepermissionClick(row)"
+            v-permission="['distributePermission']"
+          >
             {{ $t('msg.role.assignPermissions') }}
           </el-button>
         </el-table-column>
