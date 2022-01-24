@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-08 18:08:39
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 10:20:36
+ * @LastEditTime: 2022-01-24 10:40:25
  * @FilePath: \vue3-admin-element-plus\src\filter\index.js
  * @Description:
  */
@@ -16,7 +16,6 @@ export const dateFilter = (val, format = 'YYYY-MM-DD') => {
   if (!isNaN(val)) {
     val = parseInt(val)
   }
-
   return dayjs(val).format(format)
 }
 
