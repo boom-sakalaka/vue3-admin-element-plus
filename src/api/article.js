@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-24 08:15:30
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 16:11:14
+ * @LastEditTime: 2022-01-24 16:28:56
  * @FilePath: \vue3-admin-element-plus\src\api\article.js
  * @Description:
  */
@@ -22,5 +22,12 @@ export const articleSort = (data) => {
     url: '/article/sort',
     method: 'POST',
     data
+  })
+}
+
+/* 删除文章 */
+export const deleteArticle = (articleId) => {
+  return request({
+    url: `article/delete/${articleId}`
   })
 }
