@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-01 11:38:15
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 11:17:32
+ * @LastEditTime: 2022-01-24 16:27:21
  * @FilePath: \vue3-admin-element-plus\src\views\article-ranking\index.vue
  * @Description:
 -->
@@ -21,27 +21,6 @@
 
     <el-card>
       <el-table ref="tableRef" :data="tableData" border style="width: 100%">
-        <!-- <el-table-column :label="$t('msg.article.ranking')" prop="ranking"></el-table-column>
-        <el-table-column :label="$t('msg.article.title')" prop="title"></el-table-column>
-
-        <el-table-column :label="$t('msg.article.author')" prop="author"></el-table-column>
-        <el-table-column :label="$t('msg.article.publicDate')">
-          <template #default="{ row }">
-            {{ $filters.relativeTime(row.publicDate) }}
-          </template>
-        </el-table-column>
-        <el-table-column :label="$t('msg.article.desc')" prop="desc"></el-table-column>
-        <el-table-column :label="$t('msg.article.action')">
-          <template #default="{ row }">
-            <el-button type="primary" size="mini" @click="onShowClick(row)">
-              {{ $t('msg.article.show') }}
-            </el-button>
-            <el-button type="danger" size="mini" @click="onRemoveClick(row)">
-              {{ $t('msg.article.remove') }}</el-button
-            >
-          </template>
-        </el-table-column> -->
-
         <el-table-column
           v-for="(item, index) in tableColumns"
           :key="index"
@@ -78,10 +57,11 @@
 
 <script setup>
 /* eslint-disable vue/valid-v-slot */
-import { ref, onActivated } from 'vue'
+import { ref, onActivated, onMounted } from 'vue'
 import { getArticleList } from '@/api/article'
 import { watchSwitchLang } from '@/utils/i18n'
 import { dynamicData, selectDynamicLable, tableColumns } from './dynamic/index'
+import { tableRef, initSortable } from './sortable'
 
 // 数据相关
 const tableData = ref([])
@@ -118,6 +98,11 @@ const handleCurrentChange = (currentPage) => {
 const onShowClick = () => {}
 // 点击删除
 const onRemoveClick = () => {}
+
+// 初始化 sortable
+onMounted(() => {
+  initSortable(tableData, getListData)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -142,6 +127,12 @@ const onRemoveClick = () => {}
   .pagination {
     margin-top: 20px;
     text-align: center;
+  }
+
+  :deep(.sortable-ghost) {
+    opacity: 0.6;
+    color: #fff;
+    background: #304156;
   }
 }
 </style>

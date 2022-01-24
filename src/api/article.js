@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-24 08:15:30
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 08:16:35
+ * @LastEditTime: 2022-01-24 16:11:14
  * @FilePath: \vue3-admin-element-plus\src\api\article.js
  * @Description:
  */
@@ -13,5 +13,14 @@ export const getArticleList = (data) => {
   return request({
     url: '/article/list',
     params: data
+  })
+}
+
+/* 修改排序 */
+export const articleSort = (data) => {
+  return request({
+    url: '/article/sort',
+    method: 'POST',
+    data
   })
 }
