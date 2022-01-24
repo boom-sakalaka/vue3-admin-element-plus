@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-01 11:38:15
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 16:34:00
+ * @LastEditTime: 2022-01-24 16:50:03
  * @FilePath: \vue3-admin-element-plus\src\views\article-ranking\index.vue
  * @Description:
 -->
@@ -64,6 +64,7 @@ import { dynamicData, selectDynamicLable, tableColumns } from './dynamic/index'
 import { tableRef, initSortable } from './sortable'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 // 数据相关
 const tableData = ref([])
@@ -97,7 +98,10 @@ const handleCurrentChange = (currentPage) => {
 }
 
 // 点击查看
-const onShowClick = () => {}
+const router = useRouter()
+const onShowClick = (row) => {
+  router.push(`/article/${row._id}`)
+}
 // 点击删除
 const i18n = useI18n()
 const onRemoveClick = (row) => {
