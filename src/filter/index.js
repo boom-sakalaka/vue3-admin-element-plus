@@ -2,12 +2,15 @@
  * @Author: GZH
  * @Date: 2022-01-08 18:08:39
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-09 14:41:28
+ * @LastEditTime: 2022-01-24 10:20:36
  * @FilePath: \vue3-admin-element-plus\src\filter\index.js
  * @Description:
  */
 
 import dayjs from 'dayjs'
+import rt from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/zh-cn'
+import store from '@/store'
 
 export const dateFilter = (val, format = 'YYYY-MM-DD') => {
   if (!isNaN(val)) {
@@ -17,8 +20,20 @@ export const dateFilter = (val, format = 'YYYY-MM-DD') => {
   return dayjs(val).format(format)
 }
 
+// 相对时间
+dayjs.extend(rt)
+function relativeTime(val) {
+  if (!isNaN(val)) {
+    val = parseInt(val)
+  }
+  return dayjs()
+    .locale(store.getters.language === 'zh' ? 'zh-cn' : 'en')
+    .to(dayjs(val))
+}
+
 export default (app) => {
   app.config.globalProperties.$filters = {
-    dateFilter
+    dateFilter,
+    relativeTime
   }
 }
