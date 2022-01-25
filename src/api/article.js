@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-24 08:15:30
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 16:39:11
+ * @LastEditTime: 2022-01-25 22:18:19
  * @FilePath: \vue3-admin-element-plus\src\api\article.js
  * @Description:
  */
@@ -36,5 +36,23 @@ export const deleteArticle = (articleId) => {
 export const articleDetail = (articleId) => {
   return request({
     url: `/article/${articleId}`
+  })
+}
+
+/* 创建文章 */
+export const createArticle = (data) => {
+  return request({
+    url: '/article/create',
+    method: 'POST',
+    data
+  })
+}
+
+// 编辑文章
+export const editorArticle = (data) => {
+  return request({
+    url: '/article/edit',
+    method: 'POST',
+    data
   })
 }

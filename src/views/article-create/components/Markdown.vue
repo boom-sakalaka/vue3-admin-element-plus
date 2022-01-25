@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-24 19:19:23
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-25 20:47:52
+ * @LastEditTime: 2022-01-25 22:20:54
  * @FilePath: \vue3-admin-element-plus\src\views\article-create\components\Markdown.vue
  * @Description:
 -->
@@ -17,12 +17,25 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, defineProps, defineEmits, watch } from 'vue'
 import MKEditor from '@toast-ui/editor'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import '@toast-ui/editor/dist/i18n/zh-cn'
 import { useStore } from 'vuex'
 import { watchSwitchLang } from '@/utils/i18n'
+import { commitArticle, editArticle } from './commit'
+
+const props = defineProps({
+  title: {
+    type: String,
+    require: true
+  },
+  detail: {
+    type: Object
+  }
+})
+
+const emits = defineEmits(['onSuccess'])
 
 /* Editor 实例 */
 const store = useStore()
@@ -52,6 +65,38 @@ watchSwitchLang(() => {
   initEditor()
   mkEditor.setHTML(htmlStr)
 })
+
+const onSubmitClick = async () => {
+  if (props.detail && props.detail._id) {
+    await editArticle({
+      id: props.detail._id,
+      title: props.title,
+      content: mkEditor.getHTML()
+    })
+  } else {
+    await commitArticle({
+      title: props.title,
+      content: mkEditor.getHTML()
+    })
+  }
+
+  mkEditor.reset()
+
+  emits('onSuccess')
+}
+
+// 编辑相关
+watch(
+  () => props.detail,
+  (val) => {
+    if (val && val.content) {
+      mkEditor.setHTML(val.content)
+    }
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 <style lang="scss" scoped>
 .markdown-container {

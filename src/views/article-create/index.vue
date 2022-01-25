@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-01 11:38:15
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 19:27:02
+ * @LastEditTime: 2022-01-25 22:12:00
  * @FilePath: \vue3-admin-element-plus\src\views\article-create\index.vue
  * @Description:
 -->
@@ -19,7 +19,7 @@
 
       <el-tabs v-model="activeName">
         <el-tab-pane :label="$t('msg.article.markdown')" name="markdown">
-          <markdown />
+          <markdown :title="title" :detail="detail" @onSuccess="onSuccess" />
         </el-tab-pane>
         <el-tab-pane :label="$t('msg.article.richText')" name="editor">
           <eidtor />
@@ -33,9 +33,29 @@
 import { ref } from 'vue'
 import Eidtor from './components/Editot.vue'
 import Markdown from './components/Markdown.vue'
+import { articleDetail } from '@/api/article'
+import { useRoute } from 'vue-router'
 
 const title = ref('')
 const activeName = ref('markdown')
+
+const onSuccess = () => {
+  title.value = ''
+}
+
+/* 处理编辑相关 */
+const route = useRoute()
+const articleId = route.params.id
+const detail = ref({})
+const getArticleDetail = async () => {
+  detail.value = await articleDetail(articleId)
+  // 标题
+  title.value = detail.value.title
+}
+
+if (articleId) {
+  getArticleDetail()
+}
 </script>
 
 <style lang="scss" scoped>

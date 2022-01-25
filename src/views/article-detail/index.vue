@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-01 11:38:15
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-24 17:04:20
+ * @LastEditTime: 2022-01-25 22:06:34
  * @FilePath: \vue3-admin-element-plus\src\views\article-detail\index.vue
  * @Description:
 -->
@@ -29,7 +29,7 @@
 <script setup>
 import { ref } from 'vue'
 import { articleDetail } from '@/api/article'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 // 获取数据
 const route = useRoute()
@@ -40,8 +40,10 @@ const getArticleDetail = async () => {
 }
 
 getArticleDetail()
-
-const onEditClick = () => {}
+const router = useRouter()
+const onEditClick = () => {
+  router.push(`/article/editor/${articleId}`)
+}
 </script>
 
 <style lang="scss" scoped>
