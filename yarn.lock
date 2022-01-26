@@ -877,10 +877,25 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
+"@babel/runtime-corejs3@^7.11.2":
+  version "7.16.8"
+  resolved "https://registry.npmmirror.com/@babel/runtime-corejs3/download/@babel/runtime-corejs3-7.16.8.tgz#ea533d96eda6fdc76b1812248e9fbd0c11d4a1a7"
+  integrity sha512-3fKhuICS1lMz0plI5ktOE/yEtBRMVxplzRkdn6mJQ197XiY0JnrzYV0+Mxozq3JZ8SBV9Ecurmw1XsGbwOf+Sg==
+  dependencies:
+    core-js-pure "^3.20.2"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.11.0", "@babel/runtime@^7.8.4":
   version "7.16.3"
   resolved "https://registry.npmmirror.com/@babel/runtime/download/@babel/runtime-7.16.3.tgz?cache=0&sync_timestamp=1636494819594&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.16.3.tgz#b86f0db02a04187a3c17caa77de69840165d42d5"
   integrity sha512-WBwekcqacdY2e9AF/Q7WLFUWmdJGJTkbjqTjoMDgXkVZ3ZRUvOPsLb5KdwISoQVsbP+DQzVZW4Zhci0DvpbNTQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0":
+  version "7.16.7"
+  resolved "https://registry.npmmirror.com/@babel/runtime/download/@babel/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
+  integrity sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -3521,6 +3536,11 @@ core-js-compat@^3.18.0, core-js-compat@^3.19.0, core-js-compat@^3.6.5:
     browserslist "^4.17.6"
     semver "7.0.0"
 
+core-js-pure@^3.20.2:
+  version "3.20.3"
+  resolved "https://registry.npmmirror.com/core-js-pure/download/core-js-pure-3.20.3.tgz#6cc4f36da06c61d95254efc54024fe4797fd5d02"
+  integrity sha512-Q2H6tQ5MtPtcC7f3HxJ48i4Q7T9ybPKgvWyuH7JXIoNa2pm0KuBnycsET/qw1SLLZYfbsbrZQNMeIOClb+6WIA==
+
 core-js@^3.6.5:
   version "3.19.1"
   resolved "https://registry.npmmirror.com/core-js/download/core-js-3.19.1.tgz#f6f173cae23e73a7d88fa23b6e9da329276c6641"
@@ -5800,6 +5820,13 @@ husky@^7.0.4:
   version "7.0.4"
   resolved "https://registry.npmmirror.com/husky/download/husky-7.0.4.tgz#242048245dc49c8fb1bf0cc7cfb98dd722531535"
   integrity sha1-JCBIJF3EnI+xvwzHz7mN1yJTFTU=
+
+i18next@20.4.0:
+  version "20.4.0"
+  resolved "https://registry.npmmirror.com/i18next/download/i18next-20.4.0.tgz#6897229a7898e23f3c4885f10315c978b594d3b9"
+  integrity sha1-aJcimniY4j88SIXxAxXJeLWU07k=
+  dependencies:
+    "@babel/runtime" "^7.12.0"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -10051,7 +10078,7 @@ tslib@^1.9.0:
   resolved "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
-tslib@^2:
+tslib@^2, tslib@^2.1.0:
   version "2.3.1"
   resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
@@ -10504,6 +10531,15 @@ w3c-keyname@^2.2.0:
   version "2.2.4"
   resolved "https://registry.nlark.com/w3c-keyname/download/w3c-keyname-2.2.4.tgz#4ade6916f6290224cdbd1db8ac49eab03d0eef6b"
   integrity sha1-St5pFvYpAiTNvR24rEnqsD0O72s=
+
+wangeditor@4.7.6:
+  version "4.7.6"
+  resolved "https://registry.npmmirror.com/wangeditor/download/wangeditor-4.7.6.tgz#d2e6ddecf2474ec26c42773be2fac433d1e0baaf"
+  integrity sha512-8mOrYG8hDW0ZUhJqPpPGeav90RwZRHIPQolHVjdyQ6jitSmlCTzc67vLz8X5bXocriGOAaVIPiphAD+5wDNwBg==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    "@babel/runtime-corejs3" "^7.11.2"
+    tslib "^2.1.0"
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"

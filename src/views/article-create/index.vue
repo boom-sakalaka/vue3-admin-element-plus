@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2022-01-01 11:38:15
  * @LastEditors: GZH
- * @LastEditTime: 2022-01-25 22:12:00
+ * @LastEditTime: 2022-01-26 11:45:05
  * @FilePath: \vue3-admin-element-plus\src\views\article-create\index.vue
  * @Description:
 -->
@@ -22,7 +22,7 @@
           <markdown :title="title" :detail="detail" @onSuccess="onSuccess" />
         </el-tab-pane>
         <el-tab-pane :label="$t('msg.article.richText')" name="editor">
-          <eidtor />
+          <eidtor :title="title" :detail="detail" @onSuccess="onSuccess" />
         </el-tab-pane>
       </el-tabs>
     </el-card>
